@@ -27,6 +27,14 @@
     <%= form.check_box :closed %>
   </div>
 
+  <% if discussion.new_record? %>
+    <%= form.fields_for :posts do |post| %>
+      <div class="mb-3">
+        <%= post.rich_text_area :body, placeholder: "Say something!" %>
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="mb-3">
     <%= form.submit class: "btn btn-primary" %>
   </div>
