@@ -13,7 +13,9 @@ class DiscussionsController < ApplicationController
     @discussion.posts.new
   end
 
-  def show; end
+  def show
+    @new_post = @discussion.posts.new
+  end
 
   def create
     @discussion = Discussion.new(discussion_params)

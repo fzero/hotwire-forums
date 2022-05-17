@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'main#index'
 
-  resources :discussions
+  resources :discussions do
+    resources :posts, only: [:create], module: :discussions
+  end
 end
