@@ -5,7 +5,7 @@ class DiscussionsController < ApplicationController
   before_action :set_discussion, only: %i[edit show update destroy]
 
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.all.order(created_at: :desc)
   end
 
   def new
@@ -14,6 +14,7 @@ class DiscussionsController < ApplicationController
   end
 
   def show
+    @posts = @discussion.posts.order(created_at: :asc)
     @new_post = @discussion.posts.new
   end
 
