@@ -52,16 +52,16 @@ class DiscussionsController < ApplicationController
           @discussion.broadcast_prepend_to(new_category)
 
           # Update category list and discussion counts
-          old_category.reload.broadcast_replace_to("categories")
-          new_category.reload.broadcast_replace_to("categories")
+          old_category.reload.broadcast_replace_to('categories')
+          new_category.reload.broadcast_replace_to('categories')
         end
 
         if @discussion.saved_change_to_closed?
           @discussion.broadcast_action_to(
             @discussion,
             action: :replace,
-            target: "new_post_form", # This is the dom id of the turbo-frame
-            partial: "discussions/posts/form",
+            target: 'new_post_form', # This is the dom id of the turbo-frame
+            partial: 'discussions/posts/form',
             locals: { post: @discussion.posts.new }
           )
         end

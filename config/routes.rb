@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :posts, module: :discussions
 
     collection do
-      get "category/:id", to: "categories/discussions#index", as: :category
+      get 'category/:id', to: 'categories/discussions#index', as: :category
     end
   end
 

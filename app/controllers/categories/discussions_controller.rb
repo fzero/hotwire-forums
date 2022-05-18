@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Categories
   class DiscussionsController < ApplicationController
     before_action :authenticate_user!
@@ -5,7 +7,7 @@ module Categories
 
     def index
       @discussions = @category.discussions.pinned_first
-      render "discussions/index"
+      render 'discussions/index'
     end
 
     private
