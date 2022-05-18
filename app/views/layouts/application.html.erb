@@ -14,9 +14,10 @@
   <body>
     <%= render("shared/navigation") %>
 
-    <div class="container mt-4">
+    <div class="container mt-4" id="main-app-frame">
       <%= render("shared/flash") %>
       <%= yield %>
     </div>
+
   </body>
 </html>
