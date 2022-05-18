@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :categories
 
   resources :discussions do
-    resources :posts, only: %i[create show edit update], module: :discussions
+    resources :posts, module: :discussions
 
     collection do
       get "category/:id", to: "categories/discussions#index", as: :category

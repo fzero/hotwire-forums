@@ -19,6 +19,7 @@ class Discussion < ApplicationRecord
   after_update_commit -> { broadcast_replace_to 'discussions' }
   after_destroy_commit -> { broadcast_remove_to 'discussions' }
 
+  scope :pinned_first, -> { order(pinned: :desc, updated_at: :desc) }
   scope :pinned, -> { where(pinned: true) }
   scope :closed, -> { where(closed: true) }
 
