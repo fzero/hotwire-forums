@@ -3,9 +3,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'main#index'
+  resources :categories
 
   resources :discussions do
     resources :posts, only: [:create, :show, :edit, :update], module: :discussions
   end
+
+  root to: 'main#index'
 end
