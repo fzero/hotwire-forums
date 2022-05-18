@@ -13,9 +13,9 @@ class Discussion < ApplicationRecord
 
   accepts_nested_attributes_for :posts
 
-  after_create_commit -> { broadcast_prepend_to "discussions" }
-  after_update_commit -> { broadcast_replace_to "discussions" }
-  after_destroy_commit -> { broadcast_remove_to "discussions" }
+  after_create_commit -> { broadcast_prepend_to 'discussions' }
+  after_update_commit -> { broadcast_replace_to 'discussions' }
+  after_destroy_commit -> { broadcast_remove_to 'discussions' }
 
   scope :pinned, -> { where(pinned: true) }
   scope :closed, -> { where(closed: true) }

@@ -1,20 +1,19 @@
-module Discussions
+# frozen_string_literal: true
 
+module Discussions
   class PostsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_discussion
-    before_action :set_post, only: [:show, :edit, :update]
+    before_action :set_post, only: %i[show edit update]
 
-    def show
-    end
+    def show; end
 
-    def edit
-    end
+    def edit; end
 
     def update
       respond_to do |format|
         if @post.update(post_params)
-          format.html { redirect_to @post.discussion, notice: "Post updated" }
+          format.html { redirect_to @post.discussion, notice: 'Post updated' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end
@@ -26,7 +25,7 @@ module Discussions
 
       respond_to do |format|
         if @post.save
-          format.html { redirect_to discussion_path(@discussion, notice: "Post created") }
+          format.html { redirect_to discussion_path(@discussion, notice: 'Post created') }
         else
           format.turbo_stream
           format.html { render :new, status: :unprocessable_entity }
@@ -49,7 +48,5 @@ module Discussions
         .require(:post)
         .permit(:body)
     end
-
   end
-
 end
