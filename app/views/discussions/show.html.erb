@@ -3,15 +3,20 @@
 <%= render(partial: "discussions/header", locals: { discussion: @discussion }) %>
 
 <div class="mt-4">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
+<div class="mt-4">
   <%= render partial: "discussions/posts/post", collection: @posts %>
   <% if @pagy.page == @pagy.last %>
     <div id="posts"></div>
   <% end %>
 </div>
 
-<hr class="my-4">
 
-<%== pagy_bootstrap_nav(@pagy) %>
+<div class="mt-4">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
 
 <hr class="my-4">
 
