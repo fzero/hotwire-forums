@@ -64,3 +64,5 @@ gem 'devise', '~> 4.7'
 gem 'rubocop', '~> 1.29'
 
 gem 'pagy', '~> 5.10'
+
+gem 'rubocop-rails', '~> 2.14'

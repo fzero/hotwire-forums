@@ -27,11 +27,11 @@ module Discussions
         if @post.save
           if params.dig('post', 'redirect').present?
             @pagy, @posts = pagy(@discussion.posts.order(created_at: :desc))
-            format.html {
+            format.html do
               redirect_to discussion_path(
                 @discussion, page: @pagy.last, notice: 'Post created'
               )
-            }
+            end
           else
             @post = @discussion.posts.new
             format.turbo_stream

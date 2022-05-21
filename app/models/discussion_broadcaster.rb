@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DiscussionBroadcaster
   attr_reader(:discussion)
 
@@ -16,7 +18,7 @@ class DiscussionBroadcaster
   def replace_header
     discussion.broadcast_replace(
       partial: 'discussions/header',
-      locals: { discussion: discussion }
+      locals: { discussion: }
     )
   end
 
